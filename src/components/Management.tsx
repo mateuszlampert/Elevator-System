@@ -19,7 +19,7 @@ export default function Management(params: { elevatorSystem: ElevatorSystem, han
                     {[...Array(params.elevatorSystem.floorsNumber)].map((_, floor) => (
                         <tr key={floor}>
                             <td>
-                                <div style={{ background: "black", width: "80px", height: "80px", color: "white", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                <div style={{ background: "black", width: "80px", height: "80px", color: "white", display: "flex", justifyContent: "center", alignItems: "center", border: "solid 3px black" }}>
                                     <Typography>
                                         {params.elevatorSystem.floorsNumber - 1 - floor}
                                     </Typography>
@@ -36,10 +36,19 @@ export default function Management(params: { elevatorSystem: ElevatorSystem, han
                                     }
                                 >
                                     <div style={{
-                                        background: elevator.currentFloor === (params.elevatorSystem.floorsNumber - 1 - floor) ? "black" : "white",
+                                        background: elevator.currentFloor === (params.elevatorSystem.floorsNumber - 1 - floor) ? "grey" : "white",
+                                        borderStyle: "solid",
+                                        borderWidth: "3px",
+                                        borderColor: elevator.currentFloor === (params.elevatorSystem.floorsNumber - 1 - floor) ? "black" : "white",
                                         width: "80px",
-                                        height: "80px"
-                                    }} />
+                                        height: "80px",
+                                        textAlign: "center",
+                                        display: "flex", justifyContent: "center", alignItems: "center"
+                                    }}>
+                                        <Typography>
+                                            <b>{elevator.currentFloor === (params.elevatorSystem.floorsNumber - 1 - floor) ? elevator.elevatorId : null}</b>
+                                        </Typography>
+                                    </div>
                                 </td>
                             ))}
                             <td style={{ background: "white" }}>
