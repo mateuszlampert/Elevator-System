@@ -24,14 +24,15 @@ export class ElevatorSystem {
     }
 
     step() {
-        this.unhandledOrders.forEach(order => {
-            this.pickup(order);
-        })
-
+        this.retryOrders()
         this.elevators.forEach(elevator => elevator.step())
     }
 
-    pickup(order: Order) {
+    retryOrders() {
+        this.unhandledOrders = new Set([...this.unhandledOrders].filter((order) => !this.pickup(order)))
+    }
+
+    pickup(order: Order): boolean {
         let elevatorToOrderId: number | null = null;
         let bestFloorsToPass: number;
 
@@ -67,10 +68,12 @@ export class ElevatorSystem {
         if (elevatorToOrderId == null) {
             console.log("All elevators are busy, waiting for appropriate time...");
             this.unhandledOrders.add({ orderFloor: order.orderFloor, orderDirection: order.orderDirection });
+            return false;
         }
         else {
             console.log(`Elevator ${elevatorToOrderId} will arrive soon...`)
             this.update(elevatorToOrderId, order.orderFloor);
+            return true;
         }
     }
 }

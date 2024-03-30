@@ -48,8 +48,9 @@ export class Elevator {
                 this.destinationFloor = floor;
             }
         }
-
-        this.floorsToStopAt.add(floor);
+        if (this.currentFloor != floor) {
+            this.floorsToStopAt.add(floor);        
+        }
     }
 
     tryOpenDoor(floor: number) {

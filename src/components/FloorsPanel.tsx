@@ -40,12 +40,6 @@ export default function FloorsPanel(params: { open: boolean, elevator: Elevator,
                     </Stack>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={(() => {
-                        params.setOpen(false)
-                        setOpen(false)
-                    })}>
-                        Close
-                    </Button>
                     <Button autoFocus onClick={(() => {
                         setOpen(false)
                         params.setOpen(false)
