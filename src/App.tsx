@@ -1,13 +1,5 @@
-import { useState } from 'react';
-import './App.css'
-import { ElevatorSystem } from './algorithm/ElevatorSystem';
 import ConfigurationPanel from './components/ConfigurationPanel';
-import Management from './components/Management';
-import { Order } from './algorithm/Order';
-import StepButton from './components/StepButton';
-import { Elevator } from './algorithm/Elevator';
 import * as React from "react";
-import * as ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider,

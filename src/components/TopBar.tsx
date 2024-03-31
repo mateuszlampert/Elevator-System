@@ -6,7 +6,7 @@ import ElevatorIcon from '@mui/icons-material/Elevator';
 
 export default function TopBar() {
     return (
-        <AppBar position="fixed" sx={{ background: "black"}}>
+        <AppBar position="fixed" sx={{ background: "black" }}>
             <Toolbar>
                 <IconButton
                     size="large"
@@ -14,7 +14,7 @@ export default function TopBar() {
                     color="inherit"
                     href="/"
                 >
-                    <ElevatorIcon/>
+                    <ElevatorIcon />
                 </IconButton>
                 <Typography
                     variant="h6"
