@@ -6,30 +6,36 @@ export class Elevator {
     currentDirection: Direction = 0;
     destinationFloor: number = 0;
     floorsToStopAt: Set<number> = new Set<number>();
+    justOpened: boolean = false;
 
     constructor(elevatorId: number) {
         this.elevatorId = elevatorId;
     }
 
     step() {
-        this.currentFloor += this.currentDirection;
+        if (!this.justOpened) {
+            this.currentFloor += this.currentDirection;
 
-        this.tryOpenDoor(this.currentFloor);
+            this.tryOpenDoor(this.currentFloor);
 
-        if (this.currentFloor == this.destinationFloor) {
-            if (this.floorsToStopAt.size != 0) {
-                console.log("Someone lied about direction...:(");
-                this.currentDirection *= -1;
-                if (this.currentDirection == 1){
-                    this.destinationFloor = Math.max(...this.floorsToStopAt)
+            if (this.currentFloor == this.destinationFloor) {
+                if (this.floorsToStopAt.size != 0) {
+                    console.log("Someone lied about direction...:(");
+                    this.currentDirection *= -1;
+                    if (this.currentDirection == 1) {
+                        this.destinationFloor = Math.max(...this.floorsToStopAt)
+                    }
+                    else {
+                        this.destinationFloor = Math.min(...this.floorsToStopAt)
+                    }
                 }
-                else{
-                    this.destinationFloor = Math.min(...this.floorsToStopAt)
+                else {
+                    this.currentDirection = 0;
                 }
             }
-            else {
-                this.currentDirection = 0;
-            }
+        }
+        else {
+            this.justOpened = false;
         }
     }
 
@@ -49,7 +55,7 @@ export class Elevator {
             }
         }
         if (this.currentFloor != floor) {
-            this.floorsToStopAt.add(floor);        
+            this.floorsToStopAt.add(floor);
         }
     }
 
@@ -57,6 +63,7 @@ export class Elevator {
         if (this.floorsToStopAt.has(floor)) {
             this.floorsToStopAt.delete(floor);
             console.log(`Elevator ${this.elevatorId} opened at floor ${floor}`);
+            this.justOpened = true;
         }
     }
 }
