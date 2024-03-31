@@ -1,10 +1,12 @@
 import { Direction } from "./Direction"
+import { Order } from "./Order";
 
 export class Elevator {
     elevatorId: number;
     currentFloor: number = 0;
-    currentDirection: Direction = 0;
+    currentDirection: Direction = 0; // current direction can differ from destionation direction if elevator need to pick up customer
     destinationFloor: number = 0;
+    destinationDirection: Direction = 0;
     floorsToStopAt: Set<number> = new Set<number>();
     justOpened: boolean = false;
 
@@ -31,12 +33,18 @@ export class Elevator {
                 }
                 else {
                     this.currentDirection = 0;
+                    this.destinationDirection = 0;
                 }
             }
         }
         else {
             this.justOpened = false;
         }
+    }
+
+    handleOrder(order: Order){
+        this.destinationDirection = order.orderDirection;
+        this.addFloorToStopAt(order.orderFloor);
     }
 
     addFloorToStopAt(floor: number) {

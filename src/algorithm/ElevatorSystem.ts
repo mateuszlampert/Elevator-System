@@ -13,14 +13,12 @@ export class ElevatorSystem {
         this.elevators = [...Array(elevatorsNumber)].map((_, i) => new Elevator(i));
     }
 
-    // const elevators: Elevator[] = [...Array(5)].map((_, i) => new Elevator(i));
-
     status() {
         return this.elevators;
     }
 
-    update(elevatorId: number, floorToGo: number) {
-        this.elevators[elevatorId].addFloorToStopAt(floorToGo);
+    update(elevatorId: number, order: Order) {
+        this.elevators[elevatorId].handleOrder(order);
     }
 
     step() {
@@ -45,7 +43,7 @@ export class ElevatorSystem {
                     bestFloorsToPass = Math.abs(order.orderFloor - elevator.currentFloor);
                 }
             }
-            else if (elevator.currentDirection == order.orderDirection) {
+            else if (elevator.destinationDirection == order.orderDirection) {
                 if (order.orderDirection == 1) {
                     if (elevator.currentFloor <= order.orderFloor) {
                         if (elevatorToOrderId == null || Math.abs(order.orderFloor - elevator.currentFloor) < bestFloorsToPass) {
@@ -72,7 +70,7 @@ export class ElevatorSystem {
         }
         else {
             console.log(`Elevator ${elevatorToOrderId} will arrive soon...`)
-            this.update(elevatorToOrderId, order.orderFloor);
+            this.update(elevatorToOrderId, order);
             return true;
         }
     }
