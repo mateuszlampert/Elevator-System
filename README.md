@@ -65,11 +65,11 @@ To run the application you need to type following commands in your terminal:
 To keep track of actions performed by the algorithm, you can use panels on the website or check console logs for more detailed information.
 
 ### Note 2
-Assuming that opening the elevator on a given floor takes time, too (assuming one step), the system allows time for potential new passengers to choose their destination floor.
+Assuming that opening an elevator on a given floor also takes time (assuming one step), it should be enough time for potential new passengers to choose their destination floor. Otherwise, the system may assume the elevator is empty. 
 
 ### Note 3
-In the event of selecting a floor that is inconsistent with the declared driving direction, the algorithm will handle the customer's request but will be harsh on the customer and execute it at the very end.
+In the event of selecting a floor that is inconsistent with the declared  direction, the algorithm will handle the customer's request but will be harsh on the customer and execute it at the very end.
 
 
 ### Future features
-- Choose random elevator from all of the elevators with same distance to the order floor (in order to avoid excessive use of specific elevators)
+- Choosing random elevator from all of the elevators with same distance to the order floor (in order to avoid excessive use of specific elevators)
