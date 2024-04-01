@@ -50,7 +50,7 @@ To run the application you need to type following commands in your terminal:
     npm run preview
     ```
 
-- open the project in your browser at ```http://localhost:4173/```
+- open the project in your browser at ```http://localhost:8000/```
 
 - or use developer mode:
 
@@ -58,7 +58,7 @@ To run the application you need to type following commands in your terminal:
   npm run dev
   ```
 
-- open the project in your browser at ```http://localhost:5173/```
+- open the project in your browser at ```http://localhost:8000/```
 
 
 # Notes
