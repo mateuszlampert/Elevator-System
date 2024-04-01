@@ -13,7 +13,7 @@ An algorithm used for managing elevators:
 When new pick up order is registered, the algorithm looks for the best elevator to handle the order. One of the following two scenarios may occur for each elevator:
 
 1. The elevator is not being used at the moment - it can handle the order.
-2. The elevator's destination direction is the same as the order direction - it can handle the order. If the elevator moves upwards, the algorithm checks if the order floor is greater or equal elevator's current direction. We don't want to make the elevator come back! Similarly, if the elevator moves downwards, the algorithm doesn't want to make it come back and checks if the order floor is lower or equal elevator's current direction.
+2. The elevator's destination direction is the same as the order direction - it can handle the order. If the elevator moves upwards, the algorithm checks if the order floor is greater or equal elevator's current floor. We don't want to make the elevator come back! Similarly, if the elevator moves downwards, the algorithm doesn't want to make it come back and checks if the order floor is lower or equal elevator's current floor.
 
 Out of all available elevators (in terms presented above) the algorithm picks the one that is the closest one to the order floor.
 
