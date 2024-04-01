@@ -50,15 +50,13 @@ To run the application you need to type following commands in your terminal:
     npm run preview
     ```
 
-- open the project in your browser at ```http://localhost:8000/```
-
 - or use developer mode:
 
   ```
   npm run dev
   ```
 
-- open the project in your browser at ```http://localhost:8000/```
+- open the project in your browser at <a href = "http://localhost:8000/">http://localhost:8000/</a>
 
 
 # Notes
