@@ -8,6 +8,8 @@ Web application for managing elevator system. The app supports the following fun
 - making a step of simulation (each step causes the elevators to move one floor in the appropriate direction or wait in case it has just opened to pick up or drop off customers)
 - peek states of all elevators
 
+# Algorithm
+
 An algorithm used for managing elevators:
 
 When new pick up order is registered, the algorithm looks for the best elevator to handle the order. One of the following two scenarios may occur for each elevator:
@@ -73,3 +75,4 @@ In the event of selecting a floor that is inconsistent with the declared  direct
 
 ### Future features
 - Choosing random elevator from all of the elevators with same distance to the order floor (in order to avoid excessive use of specific elevators)
+- Collecting statistics on elevators use to keep free elevators closer to the most frequently requested floors
