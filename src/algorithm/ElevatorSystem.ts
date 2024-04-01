@@ -69,7 +69,7 @@ export class ElevatorSystem {
             return false;
         }
         else {
-            console.log(`Elevator ${elevatorToOrderId} will arrive soon...`)
+            console.log(`Elevator ${elevatorToOrderId} will arrive soon to floor ${order.orderFloor}...`)
             this.update(elevatorToOrderId, order);
             return true;
         }
